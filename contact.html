@@ -51,8 +51,8 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto" href="index.html"><b>Profil</b></a></li>
-          <li class="dropdown"><a class="nav-link scrollto active" href="#"><span><b>Informasi</b></span> <i class="bi bi-chevron-down"></i></a>
+          <li><a href="index.html#about"><b>Profil</b></a></li>
+          <li class="dropdown"><a href="#"><span><b>Informasi</b></span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li class="dropdown"><a href="#"><span>Keunggulan Laboratorium</span> <i class="bi bi-chevron-left"></i></a>
                 <ul>
@@ -69,9 +69,9 @@
             </ul>
 
           </li>
-          <li class="dropdown"><a href="#"><span><b>Layanan</b></span> <i class="bi bi-chevron-down"></i></a>
+          <li class="dropdown"><a class="nav-link scrollto active" href="#"><span><b>Layanan</b></span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a href="jadwal.html">Jadwal</a></li>
+              <li><a  href="jadwal.html">Jadwal</a></li>
               <li class="dropdown"><a href="#"><span>Pendaftaran</span> <i class="bi bi-chevron-left"></i></a>
                 <ul>
                   <li><a href="https://forms.gle/VX8JnmYr6mmAaDUr9">Pendaftaran Praktikum</a></li>
@@ -110,26 +110,82 @@
 
   <main id="main">
 
-    <section id="about" class="about">
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
       <div class="container">
 
         <div class="section-title" data-aos="fade-up">
           <h2></h2>
-          <h2>Struktural</h2>
         </div>
+        <div class="section-title" data-aos="fade-up">
+          <h2>Contact Us</h2>
+        </div>
+        
 
-        <div class="row content justify-content-center">
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="150">
-            <div class="text-center">
-              <a href="https://www.instagram.com/p/C5-ZkGZRl7m/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==">
-                <img src="assets/img/struktural.jpg" class="img-fluid animated" style="max-width:100%; height:auto;" alt="">
-              </a>
+        <div class="row">
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="contact-about">
+              <h3>Contact Person</h3>
+              <p><b>Laboratorium Teknik Sipil Institut Teknologi Padang</b></p>
+              <div class="social-links">
+                <a href="https://x.com/ITP_Padang" class="twitter"><i class="bi bi-twitter"></i></a>
+                <a href="https://web.facebook.com/itppadang/?locale=id_ID&_rdc=1&_rdr" class="facebook"><i class="bi bi-facebook"></i></a>
+                <a href="https://www.instagram.com/lts_itp/" class="instagram"><i class="bi bi-instagram"></i></a>
+                <a href="https://id.linkedin.com/school/institut-teknologi-padang/" class="linkedin"><i class="bi bi-linkedin"></i></a>
+              </div>
             </div>
           </div>
+
+          <div class="col-lg-3 col-md-6 mt-4 mt-md-0" data-aos="fade-up" data-aos-delay="200">
+            <div class="info">
+              <div>
+                <i class="ri-map-pin-line"></i>
+                <p>Jl. Gajah Mada Jl. Kandis Raya, Kp. Olo, Kec. Nanggalo<br>Kota Padang, Sumatera Barat 25173</p>
+              </div>
+
+              <div>
+                <i class="ri-mail-send-line"></i>
+                <p><a href="mailto:laborinstitutteknologipadang@gmail.com">Gmail</a></p>
+              </div>
+              
+
+              <div>
+                <i class="ri-phone-line"></i>
+                <p>0852-8371-8251</p>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="col-lg-5 col-md-12" data-aos="fade-up" data-aos-delay="300">
+            <form id="contact-form" role="form" class="php-email-form">
+              <div class="form-group">
+                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" name="major" id="major" placeholder="Your Major" required>
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+              </div>
+              <div class="form-group">
+                <textarea class="form-control" name="message" rows="5" id="message" placeholder="Message" required></textarea>
+              </div>
+              <div class="my-3">
+                <div class="loading">Loading</div>
+                <div class="error-message"></div>
+                <div class="sent-message">Your message has been sent. Thank you!</div>
+              </div>
+              <div class="text-center"><button type="submit">Send Message</button></div>
+            </form>
+          </div>
+          
+
         </div>
 
       </div>
-    </section><!-- End About Us Section -->
+    </section><!-- End Contact Section -->
 
   </main><!-- End #main -->
 
@@ -176,5 +232,21 @@
   <script src="assets/js/main.js"></script>
 
 </body>
+<script>
+  document.getElementById('contact-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    
+    var name = document.getElementById('name').value;
+    var major = document.getElementById('major').value;
+    var subject = document.getElementById('subject').value;
+    var message = document.getElementById('message').value;
+    
+    var whatsappMessage = `Halo Assalamualaikum, Saya ${name}, dari Jurusan ${major}, ingin bertanya tentang ${subject}, yaitu ${message}`;
+    
+    var whatsappUrl = `https://wa.me/085283718251?text=${encodeURIComponent(whatsappMessage)}`;
+    
+    window.open(whatsappUrl, '_blank');
+  });
+</script>
 
 </html>

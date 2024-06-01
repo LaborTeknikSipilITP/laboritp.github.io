@@ -262,3 +262,43 @@
   new PureCounter();
 
 })()
+
+document.addEventListener('DOMContentLoaded', function() {
+  var modal = document.getElementById("lightbox-modal");
+  var modalImg = document.getElementById("lightbox-img");
+  var closeBtn = document.getElementsByClassName("close-btn")[0];
+  var prevBtn = document.getElementsByClassName("prev-btn")[0];
+  var nextBtn = document.getElementsByClassName("next-btn")[0];
+  
+  var galleryItems = document.querySelectorAll('.gallery-item a');
+  var currentIndex = 0;
+
+  galleryItems.forEach((item, index) => {
+    item.addEventListener('click', function(event) {
+      event.preventDefault();
+      currentIndex = index;
+      modal.style.display = "block";
+      modalImg.src = this.href;
+    });
+  });
+
+  closeBtn.onclick = function() {
+    modal.style.display = "none";
+  }
+
+  prevBtn.onclick = function() {
+    currentIndex = (currentIndex === 0) ? galleryItems.length - 1 : currentIndex - 1;
+    modalImg.src = galleryItems[currentIndex].href;
+  }
+
+  nextBtn.onclick = function() {
+    currentIndex = (currentIndex === galleryItems.length - 1) ? 0 : currentIndex + 1;
+    modalImg.src = galleryItems[currentIndex].href;
+  }
+
+  modal.onclick = function(event) {
+    if (event.target === modal) {
+      modal.style.display = "none";
+    }
+  }
+});
